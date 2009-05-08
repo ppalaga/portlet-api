@@ -26,91 +26,86 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
- 
-    <parent>
-        <groupId>org.apache.portals</groupId>
-        <artifactId>portals-pom</artifactId>
-        <version>1.0</version>
-    </parent>
+
+  <parent>
+    <groupId>org.apache.portals</groupId>
+    <artifactId>portals-pom</artifactId>
+    <version>1.1</version>
+  </parent>
 
   <groupId>javax.portlet</groupId>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>portlet-api</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Java Portlet Specification V1.0</name> 
-  <description>The Java Portlet API version 1.0 developed by the Java Community Process JSR-168 Expert Group.</description>
-  <url>http://www.jcp.org/en/jsr/detail?id=168</url>
-  <distributionManagement>
-    <repository>
-      <id></id>
-      <url></url>
-    </repository>
-    <downloadUrl>http://jcp.org/aboutJava/communityprocess/final/jsr168/index.html</downloadUrl>
-  </distributionManagement>
-  
-  <dependencies>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.3</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
+  <name>Java Portlet Specification V1.0</name>
+  <description>The Java Portlet API version 1.0 developed by the Java Community Process JSR-168 Expert Group.
+  </description>
+  <!--<url>http://www.jcp.org/en/jsr/detail?id=168</url>-->
 
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-1.0</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-1.0</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api-1.0</url>
+  </scm>
+
+  <properties>
+    <!--
+    |
+    | Portals OSGi properties
+    |
+    | Note: modules can override these properties.
+    |
+    -->
+    <portals.osgi.import.pkg>*</portals.osgi.import.pkg>
+    <portals.osgi.export.pkg>*</portals.osgi.export.pkg>
+    <portals.osgi.private.pkg/>
+    <portals.osgi.export>!META-INF*,${portals.osgi.export.pkg}*;version=${portals.osgi.export.version}
+    </portals.osgi.export>
+    <portals.osgi.export.version>${project.version}</portals.osgi.export.version>
+    <portals.osgi.import>!META-INF*,${portals.osgi.import.pkg}</portals.osgi.import>
+    <portals.osgi.symbolic.name>${groupId}.${artifactId}</portals.osgi.symbolic.name>
+  </properties>
   <build>
-	<plugins>
+    <pluginManagement>
+      <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-remote-resources-plugin</artifactId>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>attach-sources</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>1.2.0</version>
+          <extensions>true</extensions>
           <configuration>
-            <doctitle>${pom.name}</doctitle>
-            <windowtitle>${pom.name}</windowtitle>
-            <splitindex>true</splitindex>
-            <bottom>&nbsp;</bottom>
+            <instructions>
+              <Bundle-Name>${artifactId}</Bundle-Name>
+              <Bundle-SymbolicName>${portals.osgi.symbolic.name}</Bundle-SymbolicName>
+              <Export-Package>${portals.osgi.export}</Export-Package>
+              <Import-Package>${portals.osgi.import}</Import-Package>
+              <Private-Package>${portals.osgi.private.pkg}</Private-Package>
+              <Implementation-Title>${project.name}</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+            </instructions>
           </configuration>
           <executions>
             <execution>
-              <id>attach-javadocs</id>
+              <id>bundle-manifest</id>
+              <phase>process-classes</phase>
               <goals>
-                <goal>jar</goal>
+                <goal>manifest</goal>
               </goals>
             </execution>
           </executions>
         </plugin>
-	</plugins>
+      </plugins>
+    </pluginManagement>
 
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0-alpha-5</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ftp</artifactId>
-        <version>1.0-alpha-6</version>
-      </extension>
-    </extensions>
-
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
-  
+
 </project>
 
 
