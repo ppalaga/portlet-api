@@ -15,10 +15,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-/*
- * NOTE: this source code is based on an early draft version of JSR 286 and not intended for product
- * implementations. This file may change or vanish in the final version of the JSR 286 specification.
- */
+
 /*
  * This source code implements specifications defined by the Java
  * Community Process. In order to remain compliant with the specification
