@@ -27,28 +27,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <parent>
-        <groupId>org.apache.portals</groupId>
-        <artifactId>portals-pom</artifactId>
-        <version>1.0</version>
-    </parent>
- 
+  <parent>
+    <groupId>org.apache.portals</groupId>
+    <artifactId>portals-pom</artifactId>
+    <version>1.1</version>
+  </parent>
+
   <groupId>javax.portlet</groupId>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>portlet-api</artifactId>
-  <version>2.0</version>
+  <artifactId>portlet-api_2.0_spec</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Java Portlet Specification V2.0</name> 
-  <description>The Java Portlet API version 2.0 developed by the Java Community Process JSR-286 Expert Group.</description>
-  <url>http://www.jcp.org/en/jsr/detail?id=286</url>
-  <distributionManagement>
-    <repository>
-      <id></id>
-      <url></url>
-    </repository>
-    <downloadUrl>http://jcp.org/aboutJava/communityprocess/final/jsr286/index.html</downloadUrl>
-  </distributionManagement>
-  
+  <name>Java Portlet Specification V2.0</name>
+  <description>The Java Portlet API version 2.0 developed by the Java Community Process JSR-286 Expert Group.
+  </description>
+  <!--<url>http://www.jcp.org/en/jsr/detail?id=286</url>-->
+
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -58,93 +52,112 @@
     </dependency>
   </dependencies>
 
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-2.0</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-2.0</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api-2.0</url>
+  </scm>
+
+  <properties>
+    <!--
+    |
+    | Portals OSGi properties
+    |
+    | Note: modules can override these properties.
+    |
+    -->
+    <portals.osgi.import.pkg>*</portals.osgi.import.pkg>
+    <portals.osgi.export.pkg>*</portals.osgi.export.pkg>
+    <portals.osgi.private.pkg/>
+    <portals.osgi.export>!META-INF*,${portals.osgi.export.pkg}*;version=${portals.osgi.export.version}
+    </portals.osgi.export>
+    <portals.osgi.export.version>${project.version}</portals.osgi.export.version>
+    <portals.osgi.import>!META-INF*,${portals.osgi.import.pkg}</portals.osgi.import>
+    <portals.osgi.symbolic.name>${groupId}.${artifactId}</portals.osgi.symbolic.name>
+  </properties>
   <build>
-	<plugins>
+    <pluginManagement>
+      <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-remote-resources-plugin</artifactId>
-        </plugin>
-		<plugin>
-			<!-- Make sure compilation is done with java 1.5 
-				since the source has annotations -->
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<configuration>
-				<source>1.5</source>
-				<target>1.5</target>
-			</configuration>
-		</plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>attach-sources</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
+          <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <doctitle>${pom.name}</doctitle>
-            <windowtitle>${pom.name}</windowtitle>
-            <splitindex>true</splitindex>
-            <bottom>&nbsp;</bottom>
+            <source>1.5</source>
+            <target>1.5</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>1.2.0</version>
+          <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <Bundle-Name>${artifactId}</Bundle-Name>
+              <Bundle-SymbolicName>${portals.osgi.symbolic.name}</Bundle-SymbolicName>
+              <Export-Package>${portals.osgi.export}</Export-Package>
+              <Import-Package>${portals.osgi.import}</Import-Package>
+              <Private-Package>${portals.osgi.private.pkg}</Private-Package>
+              <Implementation-Title>${project.name}</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+            </instructions>
           </configuration>
           <executions>
             <execution>
-              <id>attach-javadocs</id>
+              <id>bundle-manifest</id>
+              <phase>process-classes</phase>
               <goals>
-                <goal>jar</goal>
+                <goal>manifest</goal>
               </goals>
             </execution>
           </executions>
         </plugin>
-		<plugin>
+        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
+            <version>2.1</version>
             <configuration>
                 <archive>
-                    <manifestEntries>
-                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
-                        <Bundle-SymbolicName>javax.portlet</Bundle-SymbolicName>
-                        <Bundle-Name>JSR 286</Bundle-Name>
-                        <Bundle-DocURL>http://www.jcp.org/en/jsr/detail?id=286</Bundle-DocURL>
-                        <Bundle-Version>2.0</Bundle-Version>
-                        <Export-Package>
-                            javax.portlet;version="2.0.0",
-                            javax.portlet.filter;version="2.0.0"
-                        </Export-Package>
-                        <Import-Package>
-                            org.w3c.dom,
-                            javax.xml.namespace,
-                            javax.servlet.http; version="2.4.0"
-                        </Import-Package>
-                    </manifestEntries>
+                    <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                 </archive>
             </configuration>
         </plugin>
-	</plugins>
+        <!-- previous code to install bundle manifest entries by hand -->
+        <!--<plugin>-->
+          <!--<groupId>org.apache.maven.plugins</groupId>-->
+          <!--<artifactId>maven-jar-plugin</artifactId>-->
+          <!--<configuration>-->
+            <!--<archive>-->
+              <!--<manifestEntries>-->
+                <!--<Bundle-ManifestVersion>2</Bundle-ManifestVersion>-->
+                <!--<Bundle-SymbolicName>javax.portlet</Bundle-SymbolicName>-->
+                <!--<Bundle-Name>JSR 286</Bundle-Name>-->
+                <!--<Bundle-DocURL>http://www.jcp.org/en/jsr/detail?id=286</Bundle-DocURL>-->
+                <!--<Bundle-Version>2.0</Bundle-Version>-->
+                <!--<Export-Package>-->
+                  <!--javax.portlet;version="2.0.0",-->
+                  <!--javax.portlet.filter;version="2.0.0"-->
+                <!--</Export-Package>-->
+                <!--<Import-Package>-->
+                  <!--org.w3c.dom,-->
+                  <!--javax.xml.namespace,-->
+                  <!--javax.servlet.http; version="2.4.0"-->
+                <!--</Import-Package>-->
+              <!--</manifestEntries>-->
+            <!--</archive>-->
+          <!--</configuration>-->
+        <!--</plugin>-->
+      </plugins>
+    </pluginManagement>
 
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0-alpha-5</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ftp</artifactId>
-        <version>1.0-alpha-6</version>
-      </extension>
-    </extensions>
-
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
-  
+
 </project>
 
 

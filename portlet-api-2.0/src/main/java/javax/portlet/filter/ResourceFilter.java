@@ -78,7 +78,7 @@ public interface ResourceFilter extends PortletFilter {
      *      method on the <code>FilterChain</code> object, and passing in 
      *      the request and response with which it was called or passing 
      *      in wrapped versions it may have created. 
-     *      The filter chain’s implementation of the <code>doFilter</code> 
+     *      The filter chain's implementation of the <code>doFilter</code> 
      *      method, provided by the portlet container, must locate the 
      *      next component in the filter chain and invoke its <code>doFilter</code>
      *      method, passing in the appropriate request and response objects. 
