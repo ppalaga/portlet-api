@@ -35,7 +35,7 @@
 
   <groupId>javax.portlet</groupId>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>portlet-api</artifactId>
+  <artifactId>portlet-api_1.0_spec</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Java Portlet Specification V1.0</name>
