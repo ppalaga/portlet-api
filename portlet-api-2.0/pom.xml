@@ -33,21 +33,25 @@
     <version>1.1</version>
   </parent>
 
-  <groupId>javax.portlet</groupId>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>portlet-api_2.0_spec</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Java Portlet Specification V2.0</name>
-  <description>The Java Portlet API version 2.0 developed by the Java Community Process JSR-286 Expert Group.
-  </description>
+  <description>The Java Portlet API version 2.0 developed by the Java Community Process JSR-286 Expert Group.</description>
   <!--<url>http://www.jcp.org/en/jsr/detail?id=286</url>-->
 
   <dependencies>
+    <!--<dependency>-->
+      <!--<groupId>javax.servlet</groupId>-->
+      <!--<artifactId>servlet-api</artifactId>-->
+      <!--<version>2.4</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-servlet_2.5_spec</artifactId>
+      <version>1.2</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
@@ -66,14 +70,15 @@
     | Note: modules can override these properties.
     |
     -->
-    <portals.osgi.import.pkg>*</portals.osgi.import.pkg>
-    <portals.osgi.export.pkg>*</portals.osgi.export.pkg>
-    <portals.osgi.private.pkg/>
-    <portals.osgi.export>!META-INF*,${portals.osgi.export.pkg}*;version=${portals.osgi.export.version}
-    </portals.osgi.export>
-    <portals.osgi.export.version>${project.version}</portals.osgi.export.version>
-    <portals.osgi.import>!META-INF*,${portals.osgi.import.pkg}</portals.osgi.import>
-    <portals.osgi.symbolic.name>${groupId}.${artifactId}</portals.osgi.symbolic.name>
+    <!--<portals.osgi.import.pkg>*</portals.osgi.import.pkg>-->
+    <!--<portals.osgi.export.pkg>*</portals.osgi.export.pkg>-->
+    <!--<portals.osgi.private.pkg/>-->
+    <!--<portals.osgi.export>!META-INF*,${portals.osgi.export.pkg}*;version=${portals.osgi.export.version}</portals.osgi.export>-->
+    <!--<portals.osgi.export.version>2.0</portals.osgi.export.version>-->
+    <!--<portals.osgi.import>!META-INF*,${portals.osgi.import.pkg}</portals.osgi.import>-->
+    <!--<portals.osgi.symbolic.name>${groupId}.${artifactId}</portals.osgi.symbolic.name>-->
+    <!--<bnd.version.policy>[$(version;==;$(@)),$(version;+;$(@)))</bnd.version.policy>-->
+    <!--<bnd.version.policy>$(version;==;$(@))</bnd.version.policy>-->
   </properties>
   <build>
     <pluginManagement>
@@ -89,17 +94,20 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>1.4.3</version>
+          <!--<version>1.4.3</version>-->
+          <version>2.0.0</version>
           <extensions>true</extensions>
           <configuration>
             <instructions>
-              <Bundle-Name>${artifactId}</Bundle-Name>
-              <Bundle-SymbolicName>${portals.osgi.symbolic.name}</Bundle-SymbolicName>
-              <Export-Package>${portals.osgi.export}</Export-Package>
-              <Import-Package>${portals.osgi.import}</Import-Package>
-              <Private-Package>${portals.osgi.private.pkg}</Private-Package>
-              <Implementation-Title>${project.name}</Implementation-Title>
-              <Implementation-Version>${project.version}</Implementation-Version>
+              <!--<Bundle-Name>${artifactId}</Bundle-Name>-->
+              <!--<Bundle-SymbolicName>${portals.osgi.symbolic.name}</Bundle-SymbolicName>-->
+              <!--<Export-Package>${portals.osgi.export}</Export-Package>-->
+              <!--<Import-Package>${portals.osgi.import}</Import-Package>-->
+              <!--<Private-Package>${portals.osgi.private.pkg}</Private-Package>-->
+              <!--<Implementation-Title>${project.name}</Implementation-Title>-->
+              <!--<Implementation-Version>${project.version}</Implementation-Version>-->
+              <!--<version>2.0</version>-->
+              <!--<_versionpolicy>${bnd.version.policy}</_versionpolicy>-->
             </instructions>
           </configuration>
         </plugin>
