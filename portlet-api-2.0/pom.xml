@@ -42,12 +42,6 @@
       <version>2.4</version>
       <scope>provided</scope>
     </dependency>
-    <!--<dependency>-->
-    <!--<groupId>org.apache.geronimo.specs</groupId>-->
-    <!--<artifactId>geronimo-servlet_2.5_spec</artifactId>-->
-    <!--<version>1.2</version>-->
-    <!--<scope>provided</scope>-->
-    <!--</dependency>-->
   </dependencies>
 
   <scm>
@@ -56,24 +50,6 @@
     <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api-2.0</url>
   </scm>
 
-  <properties>
-    <!--
-    |
-    | Portals OSGi properties
-    |
-    | Note: modules can override these properties.
-    |
-    -->
-    <!--<portals.osgi.import.pkg>*</portals.osgi.import.pkg>-->
-    <!--<portals.osgi.export.pkg>*</portals.osgi.export.pkg>-->
-    <!--<portals.osgi.private.pkg/>-->
-    <!--<portals.osgi.export>!META-INF*,${portals.osgi.export.pkg}*;version=${portals.osgi.export.version}</portals.osgi.export>-->
-    <!--<portals.osgi.export.version>2.0</portals.osgi.export.version>-->
-    <!--<portals.osgi.import>!META-INF*,${portals.osgi.import.pkg}</portals.osgi.import>-->
-    <!--<portals.osgi.symbolic.name>${groupId}.${artifactId}</portals.osgi.symbolic.name>-->
-    <!--<bnd.version.policy>[$(version;==;$(@)),$(version;+;$(@)))</bnd.version.policy>-->
-    <!--<bnd.version.policy>$(version;==;$(@))</bnd.version.policy>-->
-  </properties>
   <build>
     <pluginManagement>
       <plugins>
