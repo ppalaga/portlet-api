@@ -60,6 +60,8 @@
           <extensions>true</extensions>
           <configuration>
             <instructions>
+              <!-- minor fix for the organization name glitch in portals-pom-1.1 -->
+              <Bundle-Vendor>The Apache Software Foundation</Bundle-Vendor>
               <Export-Package>javax.portlet;version=1.0.0</Export-Package>
               <Private-Package/>
               <Implementation-Title>${project.name}</Implementation-Title>

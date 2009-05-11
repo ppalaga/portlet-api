@@ -68,6 +68,8 @@
           <extensions>true</extensions>
           <configuration>
             <instructions>
+              <!-- minor fix for the organization name glitch in portals-pom-1.1 -->
+              <Bundle-Vendor>The Apache Software Foundation</Bundle-Vendor>
               <Export-Package>javax.portlet.filter;version=2.0.0,
                 javax.portlet;version=2.0.0
               </Export-Package>
