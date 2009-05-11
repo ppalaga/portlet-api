@@ -61,7 +61,7 @@
           <configuration>
             <instructions>
               <Export-Package>javax.portlet;version=1.0.0</Export-Package>
-              <Import-Package>javax.portlet;version=1.0.0</Import-Package>
+              <!--<Import-Package>javax.portlet;version=1.0.0</Import-Package>-->
               <Private-Package/>
               <Implementation-Title>${project.name}</Implementation-Title>
               <Implementation-Version>${project.version}</Implementation-Version>

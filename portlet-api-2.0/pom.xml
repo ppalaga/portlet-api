@@ -68,11 +68,12 @@
           <extensions>true</extensions>
           <configuration>
             <instructions>
-              <Export-Package>javax.portlet.filter;uses:="javax.portlet,javax.xml.namespace,javax.servlet.http,org.w3c.dom";version=2.0.0,
-                javax.portlet;uses:="javax.xml.namespace,javax.servlet.http,org.w3c.dom";version=2.0.0
+              <Export-Package>javax.portlet.filter;version=2.0.0,
+                javax.portlet;version=2.0.0
               </Export-Package>
-              <Import-Package>javax.portlet;version=2.0.0,
-                javax.portlet.filter;version=2.0.0,
+              <Import-Package>
+                javax.portlet,
+                javax.portlet.filter,
                 javax.servlet.http;version=2.4,
                 javax.xml.namespace,
                 org.w3c.dom
@@ -83,41 +84,6 @@
             </instructions>
           </configuration>
         </plugin>
-        <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-jar-plugin</artifactId>-->
-        <!--<version>2.1</version>-->
-        <!--<configuration>-->
-        <!--<archive>-->
-        <!--<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>-->
-        <!--</archive>-->
-        <!--</configuration>-->
-        <!--</plugin>-->
-        <!-- previous code to install bundle manifest entries by hand -->
-        <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-jar-plugin</artifactId>-->
-        <!--<configuration>-->
-        <!--<archive>-->
-        <!--<manifestEntries>-->
-        <!--<Bundle-ManifestVersion>2</Bundle-ManifestVersion>-->
-        <!--<Bundle-SymbolicName>javax.portlet</Bundle-SymbolicName>-->
-        <!--<Bundle-Name>JSR 286</Bundle-Name>-->
-        <!--<Bundle-DocURL>http://www.jcp.org/en/jsr/detail?id=286</Bundle-DocURL>-->
-        <!--<Bundle-Version>2.0</Bundle-Version>-->
-        <!--<Export-Package>-->
-        <!--javax.portlet;version="2.0.0",-->
-        <!--javax.portlet.filter;version="2.0.0"-->
-        <!--</Export-Package>-->
-        <!--<Import-Package>-->
-        <!--org.w3c.dom,-->
-        <!--javax.xml.namespace,-->
-        <!--javax.servlet.http; version="2.4.0"-->
-        <!--</Import-Package>-->
-        <!--</manifestEntries>-->
-        <!--</archive>-->
-        <!--</configuration>-->
-        <!--</plugin>-->
       </plugins>
     </pluginManagement>
 
