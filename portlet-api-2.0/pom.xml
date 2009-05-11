@@ -72,13 +72,8 @@
                 javax.portlet;version=2.0.0
               </Export-Package>
               <Import-Package>
-                javax.portlet,
-                javax.portlet.filter,
-                javax.servlet.http;version=2.4,
-                javax.xml.namespace,
-                org.w3c.dom
+                javax.servlet.http;version=2.4,*
               </Import-Package>
-              <Private-Package/>
               <Implementation-Title>${project.name}</Implementation-Title>
               <Implementation-Version>${project.version}</Implementation-Version>
             </instructions>
