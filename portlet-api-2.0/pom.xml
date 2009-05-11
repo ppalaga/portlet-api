@@ -45,9 +45,9 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-2.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api-2.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api-2.0</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_2.0_spec</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_2.0_spec</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api_2.0_spec</url>
   </scm>
 
   <build>
