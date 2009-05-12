@@ -101,11 +101,6 @@
             <!-- only include this in top level project poms -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <configuration>
-              <descriptors>
-                <descriptor>src/main/assembly/project.xml</descriptor>
-              </descriptors>
-            </configuration>
           </plugin>
         </plugins>
       </build>
