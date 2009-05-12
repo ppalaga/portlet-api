@@ -38,7 +38,7 @@
   <name>Java Portlet Specification V1.0</name>
   <description>The Java Portlet API version 1.0 developed by the Java Community Process JSR-168 Expert Group.</description>
 
-  <url>http://portals.apache.org/portlet-spec/portlet-api_1.0</url>
+  <url>http://portals.apache.org/portlet-spec/portlet-api-1.0</url>
 
   <scm>
     <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_1.0_spec</connection>
@@ -99,5 +99,3 @@
   </profiles>
 
 </project>
-
-
