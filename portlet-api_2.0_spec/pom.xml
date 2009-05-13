@@ -30,7 +30,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>portlet-api_2.0_spec</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Java Portlet Specification V2.0</name>
   <description>The Java Portlet API version 2.0 developed by the Java Community Process JSR-286 Expert Group.</description>
@@ -47,9 +47,9 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_2.0_spec-1.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_2.0_spec-1.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/portals/portlet-spec/tags/portlet-api_2.0_spec-1.0</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_2.0_spec</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_2.0_spec</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api_2.0_spec</url>
   </scm>
 
   <build>
