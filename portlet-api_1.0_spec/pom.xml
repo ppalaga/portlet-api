@@ -31,7 +31,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>portlet-api_1.0_spec</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Java Portlet Specification V1.0</name>
   <description>The Java Portlet API version 1.0 developed by the Java Community Process JSR-168 Expert Group.</description>
@@ -39,9 +39,9 @@
   <url>http://portals.apache.org/portlet-spec/portlet-api-1.0</url>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_1.0_spec</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_1.0_spec</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api_1.0_spec</url>
   </scm>
 
   <build>
