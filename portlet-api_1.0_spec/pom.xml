@@ -21,9 +21,7 @@
 -->
 
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
     <groupId>org.apache.portals</groupId>
@@ -33,7 +31,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>portlet-api_1.0_spec</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>bundle</packaging>
   <name>Java Portlet Specification V1.0</name>
   <description>The Java Portlet API version 1.0 developed by the Java Community Process JSR-168 Expert Group.</description>
@@ -41,9 +39,9 @@
   <url>http://portals.apache.org/portlet-spec/portlet-api-1.0</url>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_1.0_spec</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/trunk/portlet-api_1.0_spec</developerConnection>
-    <url>http://svn.apache.org/viewvc/portals/portlet-spec/trunk/portlet-api_1.0_spec</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</developerConnection>
+    <url>http://svn.apache.org/viewvc/portals/portlet-spec/tags/portlet-api_1.0_spec-1.0</url>
   </scm>
 
   <build>
@@ -65,7 +63,7 @@
           <configuration>
             <instructions>
               <Export-Package>javax.portlet;version=1.0.0</Export-Package>
-              <Private-Package/>
+              <Private-Package />
               <Implementation-Title>${project.name}</Implementation-Title>
               <Implementation-Version>${project.version}</Implementation-Version>
               <Bundle-DocURL>${project.url}</Bundle-DocURL>
